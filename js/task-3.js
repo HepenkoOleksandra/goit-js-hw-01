@@ -1,20 +1,30 @@
 'use strict'
 
-function getElementWidth(content, padding, border) {
-    const width = Number.parseFloat(content) + Number.parseFloat(padding) * 2 + Number.parseFloat(border) * 2;
-    return width;
-    // return Number.parseFloat(content) + Number.parseFloat(padding) * 2 + Number.parseFloat(border) * 2;
+function checkStorage(available, ordered) {
+    let stocks = undefined;
+    const orderGoods = ordered;
+  const goods = available;
+  if (goods < orderGoods) {
+    stocks = "Not enough goods in stock!";
+  } else {
+     stocks = "Order is processed, our manager will contact you";
+  }
+    return stocks;
 }
 
-console.log(getElementWidth("50px", "8px", "4px")); // 74
-console.log(getElementWidth("60px", "12px", "8.5px")); // 101
-console.log(getElementWidth("200px", "0px", "0px")); // 200
+console.log(checkStorage(100, 50));
+console.log(checkStorage(100, 130));
+console.log(checkStorage(200, 20));
+console.log(checkStorage(200, 150));
+console.log(checkStorage(150, 180));
 
-// const result = getElementWidth("50px", "8px", "4px");
-// console.log(result);
-
-// const resultOne = getElementWidth("60px", "12px", "8.5px");
-// console.log(resultOne);
-
-// const resultTwo = getElementWidth("200px", "0px", "0px");
-// console.log(resultTwo);
+// const result1 = checkStorage(100, 50);
+// console.log(result1);
+// const result2 = checkStorage(100, 130);
+// console.log(result2);
+// const result3 = checkStorage(200, 20);
+// console.log(result3);
+// const result4 = checkStorage(200, 150);
+// console.log(result4);
+// const result5 = checkStorage(150, 180);
+// console.log(result5);
